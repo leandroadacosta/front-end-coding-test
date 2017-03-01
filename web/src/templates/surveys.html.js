@@ -7,6 +7,7 @@ const renderSurvey = surveys => {
     </li>`;
   }).join("");
 };
+
 exports.render = surveys => {
   return `
     <h1>Survey results</h1>
