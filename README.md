@@ -29,7 +29,7 @@ For doing that it has used some best practices and design patterns, like: `Singl
 
 ### Setup
 
-* Node version v6.9.2
+* Node version v6.10.0
 * Access the folder: `web`
 * Install dependencies: `npm install`
 * Running tests: `npm test`
