@@ -2,17 +2,19 @@
 
 The application is built separated in two applications: 1) back-end in Ruby, and 2) front-end in Node.js.
 
-## API server
+## 1) API server
 
 This API is very simple, and it is written in Ruby with Sinatra framework.
 
 ### Setup
 
+* Ruby version 2.3.3
+* Access the folder: `api`
 * Install dependencies: `gem install sinatra`
 * Boot the server: `ruby server.rb`
 * Accessing the API: `http://localhost:4567/index.json`
 
-## Web application
+## 2) Web application
 
 The web application is written in JS (ES6) with Node.js. It hasn't been coded using a SPA or a MV* framework. It was coded without these frameworks, but it was coded to simulate a SPA (Single Page Application). The motivation of this project is to show how would be to build a "SPA" from scratch.
 
@@ -27,6 +29,8 @@ For doing that it has used some best practices and design patterns, like: `Singl
 
 ### Setup
 
+* Node version v6.9.2
+* Access the folder: `web`
 * Install dependencies: `npm install`
 * Running tests: `npm test`
 * Boot the server: `npm start`
