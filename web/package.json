@@ -1,7 +1,7 @@
 {
   "name": "front-end",
   "version": "1.0.0",
-  "description": "Web client application",
+  "description": "Web application",
   "scripts": {
     "start": "npm run buildjs && npm run buildcss & npm run server",
     "server": "http-server public -p 3000",
