@@ -10,7 +10,7 @@ end
 
 get '/survey_results/:id.json' do
   content_type :json
-  sleep 1
   headers 'Access-Control-Allow-Origin' => WEB_URL
+  sleep 1
   File.read("survey_results/#{params['id']}.json")
 end
