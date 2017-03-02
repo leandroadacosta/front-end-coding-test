@@ -11,11 +11,10 @@ describe('Surveys', () => {
   describe('#render()', () => {
     request.BASE_URL = 'http://localhost:4567';
     let document;
-    let surveyResults;
+    let surveyResults = JSON.parse(fs.readFileSync("./../api/index.json", "utf8"))['survey_results'];
 
     before(function () {
       document = jsdom.jsdom().defaultView.document;
-      surveyResults = JSON.parse(fs.readFileSync("../api/index.json"))['survey_results'];
       server.listen(4567);
     });
 

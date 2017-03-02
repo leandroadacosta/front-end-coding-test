@@ -21,13 +21,13 @@ class SurveyResult extends TinyEmitter {
     };
     this.request.get(opts, (err, xhr, body) => {
       this.el.innerHTML = Template.render(
-          SurveyResultDecorator.decorate(body['survey_result_detail'])
+        SurveyResultDecorator.decorate(body['survey_result_detail'])
       );
       this.addEventListeners();
     });
   }
   backClick() {
-    backLink().addEventListener('click', e => {
+    this.backLink().addEventListener('click', e => {
       this.emit("backClick");
     });
   }
