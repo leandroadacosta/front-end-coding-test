@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "description": "Web client application",
   "scripts": {
-    "start": "npm run build && npm run server",
+    "start": "npm run buildjs && npm run buildcss & npm run server",
     "server": "http-server public -p 3000",
-    "build": "browserify src -t babelify -o public/js/app.js"
+    "buildjs": "browserify src -t babelify -o public/js/app.js",
+    "buildcss": "stylus -w src/css/app.styl -o public/css/app.css"
   },
   "author": "Leandro Alvares da Costa",
   "devDependencies": {
@@ -14,6 +15,7 @@
     "browser-request": "^0.3.3",
     "browserify": "^14.1.0",
     "http-server": "^0.9.0",
+    "stylus": "^0.54.5",
     "tiny-emitter": "^1.1.0"
   }
 }

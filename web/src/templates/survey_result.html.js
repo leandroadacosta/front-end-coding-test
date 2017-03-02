@@ -8,7 +8,7 @@ const renderQuestions = questions => {
   ];
   return questions.map(question => {
     return `
-      <li>
+      <li class="survey-theme__question">
         <strong>${question.description}</strong>
         <br>
         ${
@@ -31,7 +31,7 @@ const renderThemes = themes => {
   return themes.map(theme => {
     return `
       <h3>${theme.name}</h3>
-      <ul>
+      <ul class="survey-theme">
         ${renderQuestions(theme.questions)}
       </ul>
     `;
