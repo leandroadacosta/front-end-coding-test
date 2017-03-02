@@ -11,7 +11,7 @@ describe('Surveys', () => {
   describe('#render()', () => {
     request.BASE_URL = 'http://localhost:4567';
     let document;
-    let surveyResults = JSON.parse(fs.readFileSync("./../api/index.json", "utf8"))['survey_results'];
+    let surveyResults = JSON.parse(fs.readFileSync("../api/index.json", "utf8"))['survey_results'];
 
     before(function () {
       document = jsdom.jsdom().defaultView.document;
@@ -29,7 +29,7 @@ describe('Surveys', () => {
       setTimeout(() => {
         assert.equal(el.innerHTML, Template.render(surveyResults));
         done();
-      }, 20);
+      }, 50);
     });
 
     it('should bind events on the elements', (done) => {
@@ -49,7 +49,7 @@ describe('Surveys', () => {
         assert(callbackOne.withArgs(surveyResults[1]['url']).calledOnce);
 
         done();
-      }, 20);
+      }, 50);
     });
   });
 });

@@ -8,6 +8,6 @@ module.exports = http.createServer((req, res) => {
   });
   req.on('end', () => {
     res.writeHead(200, {'Content-Type': 'application/json'});
-    res.end(fs.readFileSync("./index.json", "utf8"));
+    res.end(fs.readFileSync("../api/index.json", "utf8"));
   });
 });
