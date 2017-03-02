@@ -1,5 +1,6 @@
 import TinyEmitter from "tiny-emitter";
 import Template from "../templates/survey_result.html.js";
+import SurveyResultDecorator from "../decorators/survey_result_decorator.js";
 
 class SurveyResult extends TinyEmitter {
   constructor(el, request) {
@@ -20,7 +21,9 @@ class SurveyResult extends TinyEmitter {
       json: true
     };
     this.request(opts, (err, xhr, data) => {
-      this.el.innerHTML = Template.render(data['survey_result_detail']);
+      this.el.innerHTML = Template.render(
+          SurveyResultDecorator.decorate(data['survey_result_detail'])
+      );
       this.addEventListeners();
     });
   }

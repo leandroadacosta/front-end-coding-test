@@ -1,27 +1,10 @@
 const renderQuestions = questions => {
-  const agreementRating = [
-    'Strongly disagree',
-    'Disagree',
-    'Indifferent',
-    'Agree',
-    'Strongly agree'
-  ];
   return questions.map(question => {
     return `
       <li class="survey-theme__question">
-        <strong>${question.description}</strong>
+        <strong>${question['description']}</strong>
         <br>
-        ${
-          agreementRating[(question.survey_responses.map(response => {
-            return Number(response.response_content)
-          })
-          .filter(n => {
-            return n !== "";
-          })
-          .reduce((response_content,n) => {
-            return response_content + n;
-          }) / question.survey_responses.length).toFixed(0)-1]
-        }
+        ${question.agreementRating}
       </li>
     `;
   }).join("");
@@ -30,9 +13,9 @@ const renderQuestions = questions => {
 const renderThemes = themes => {
   return themes.map(theme => {
     return `
-      <h3>${theme.name}</h3>
+      <h3>${theme['name']}</h3>
       <ul class="survey-theme">
-        ${renderQuestions(theme.questions)}
+        ${renderQuestions(theme['questions'])}
       </ul>
     `;
   }).join("");
@@ -41,12 +24,12 @@ const renderThemes = themes => {
 exports.render = surveyResult => {
   return `
     <p><a href="javascript:;" class="js-back-link">Return back</a></p>
-    <h1>${surveyResult.name}</h1>
+    <h1>${surveyResult['name']}</h1>
     <p>
-      Total of ${surveyResult.participant_count} participants
+      Total of ${surveyResult['participant_count']} participants
       <br>
-      ${Number(surveyResult.response_rate * 100).toFixed(0)}% of participation rate
+      ${surveyResult.participationRate}% of participation rate
     </p>
-    ${renderThemes(surveyResult.themes)}
+    ${renderThemes(surveyResult['themes'])}
   `;
 }

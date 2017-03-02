@@ -1,8 +1,8 @@
 const renderSurvey = surveys => {
   return surveys.map(survey => {
     return `<li>
-      <a href="javascript:;" class="js-survey-link" data-survey-url="${survey.url}">
-        ${survey.name}
+      <a href="javascript:;" class="js-survey-link" data-survey-url="${survey['url']}">
+        ${survey['name']}
       </a>
     </li>`;
   }).join("");
