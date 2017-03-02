@@ -1,10 +1,46 @@
-# Front End Developer Coding Test
+# The application
+
+The application is built separated in two applications: 1) back-end in Ruby, and 2) front-end in Node.js.
+
+## API server
+
+This API is very simple, and it is written in Ruby with Sinatra framework.
+
+### Setup
+
+* Install dependencies: `gem install sinatra`
+* Boot the server: `ruby server.rb`
+* Accessing the API: `http://localhost:4567/index.json`
+
+## Web application
+
+The web application is written in JS (ES6) with Node.js. It hasn't been coded using a SPA or a MV* framework. It was coded without these frameworks, but it was coded to simulate a SPA (Single Page Application). The motivation of this project is to show how would be to build a "SPA" from scratch.
+
+For doing that it has used some best practices and design patterns, like: `Single Responsibility Principle` of each component/class; `Dependency Injection`; `Controller` with `Pub/Sub` events; `Template Rendering` using template literals of ES6; `Decorator` to decouple logic from the views; and `Unit Tests`.
+
+### Trade-offs
+
+* There is no compressing or minification for the assets.
+* The CSS has been started with good practices like http://getbem.com/introduction, but it wasn't the focus.
+* There is built fewer tests because it was just to show them as an example. Creating tests for everything in this challenge wasn't the most important thing.
+* In the future, some files might need to be refactored, such as the decorator and the tests.
+
+### Setup
+
+* Install dependencies: `npm install`
+* Running tests: `npm test`
+* Boot the server: `npm start`
+* Accessing the application: `http://localhost:3000`
+
+# The challenge
+
+## Front End Developer Coding Test
 
 This repository contains a small number of static JSON files, which represent the responses from an HTTP API that offers access to a database of survey results.
 
 Your task is to build a web front end that displays the data supplied by this API. You must process the survey data and display the results in a clear, usable interface.
 
-## Getting Started
+### Getting Started
 
 We suggest you start by setting up an HTTP server that will serve up these JSON files upon request. This may be the same server that serves your web application to consume the API, but make sure to design your application in such a way that you could easily point it to an arbitrary base URL for the API, somewhere else on the Internet.
 
@@ -12,13 +48,13 @@ One you’ve got the API available, use whatever client-side libraries or framew
 
 (Tip: If your application will access the API directly from the browser, using the same server for both your application and the API it consumes will save you having to deal with cross-origin requests. Of course, if you enjoy that sort of thing, feel free to go for it!)
 
-## The API
+### The API
 
 `index.json` is returned when you send a GET request for the root URL. It returns a list of the surveys that are stored in the database, and high-level statistics for each. For each survey, a URL is included that points to one of the other JSON files.
 
 The remaining JSON files each provide full response data for one of these surveys. Each survey is broken into one or more themes, each theme contains one or more questions and each question contains a list of responses. A response represents an individual user (`"respondent_id"`) answering an individual question (`"question_id"`). The content of each response represents an agreement rating on a scale of `"1"` (strongly disagree) to `"5"` (strongly agree). If you wished, you could obtain all of the responses for a single user by consulting all of the responses with that user’s `"respondent_id"`.
 
-## Requirements
+### Requirements
 
 Your application should include:
 
@@ -31,7 +67,7 @@ Responses with an empty rating should be considered non-responses (questions ski
 
 You can deliver a set of static HTML pages that consume the API data with JavaScript, but keep in mind that we need to be able to read your code, so if you’re compiling your JavaScript in any way, please include your source code too. Alternatively, if you want to build an application that runs on its own web server, that’s okay too.
 
-## Recommendations
+### Recommendations
 
 * Be creative in considering the right way to display the results.
 * Feel free to use frameworks and libraries, but keep in mind that we are looking for something that demonstrates that you can write good front-end code, not just wire up a framework.
@@ -42,7 +78,7 @@ You can deliver a set of static HTML pages that consume the API data with JavaSc
 
 Beyond meeting the minimum requirements above, it’s up to you where you want to focus. We don’t expect a fully-finished, production-quality web application; rather, we’re happy for you to focus on whatever areas you feel best showcase your skills.
 
-## Submitting your solution
+### Submitting your solution
 
 Assuming you use Git to track changes to your code, when you’re ready to submit your solution, please use `git bundle` to package up a copy of your repository (with complete commit history) as a single file and send it to us as an email attachment.
 
