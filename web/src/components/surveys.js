@@ -15,21 +15,23 @@ class Surveys extends TinyEmitter {
   }
   renderSurveys() {
     const opts = {
-      method: "GET",
       url: `${this.request.BASE_URL}/index.json`,
       json: true
     };
-    this.request(opts, (err, xhr, data) => {
-      this.el.innerHTML = Template.render(data['survey_results']);
+    this.request.get(opts, (err, xhr, body) => {
+      this.el.innerHTML = Template.render(body['survey_results']);
       this.addEventListeners();
     });
   }
   surveyClick() {
-    this.el.querySelectorAll('.js-survey-link').forEach(link => {
+    this.surveyLink().forEach(link => {
       link.addEventListener('click', e => {
-        this.emit("surveyClick", e.target.dataset.surveyUrl);
+        this.emit("surveyClick", e.target.getAttribute('data-survey-url'));
       });
     });
+  }
+  surveyLink() {
+    return this.el.querySelectorAll('.js-survey-link');
   }
 }
 

@@ -1,4 +1,4 @@
-import request from "browser-request";
+import request from "request";
 import Surveys from './components/surveys'
 import SurveyResult from './components/survey_result'
 
