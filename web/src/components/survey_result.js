@@ -15,6 +15,7 @@ class SurveyResult extends TinyEmitter {
     this.backClick();
   }
   renderSurveyResult(url) {
+    this.el.innerHTML = "Loading survey result...";
     const opts = {
       url: `${this.request.BASE_URL}${url}`,
       json: true

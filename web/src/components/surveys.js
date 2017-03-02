@@ -14,6 +14,7 @@ class Surveys extends TinyEmitter {
     this.surveyClick();
   }
   renderSurveys() {
+    this.el.innerHTML = "Loading surveys...";
     const opts = {
       url: `${this.request.BASE_URL}/index.json`,
       json: true
